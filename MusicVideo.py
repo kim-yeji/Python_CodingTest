@@ -14,6 +14,7 @@ def Count(capacity):
 
 n,m=map(int,input().split())
 music=list(map(int,input().split()))
+max1 = max(music) # music중 가장 긴 노래를 찾는다.
 
 lt=1
 rt=sum(music)
@@ -21,12 +22,17 @@ answer=0
 
 while lt<=rt:
     mid=(lt+rt)//2
-    if Count(mid)<=m : # 필요한 DVD 개수가 넘어옴
+    if max1<=mid and Count(mid)<=m : # DVD의 용량이 가장 긴 노래보다는 크거나 같아야한다. and 필요한 DVD 개수가 넘어옴
         answer=mid
         rt=mid-1
     else:
         lt=mid+1
 print(answer)
+
+
+
+
+
 
 
 
